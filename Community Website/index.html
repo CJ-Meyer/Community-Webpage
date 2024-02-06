@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>"Community" Webpage</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Graduate&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      h1, body, p, .column-left, .separator{
+        margin: 0;
+        padding: 0;
+      }
+      .nav-items a {
+        color: rgb(24, 69, 136);
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .navbar{
+        background-color: rgb(32, 121, 30);
+      }
+      h1{
+        position: relative;
+        text-align: center;
+        color: rgb(24, 69, 136);
+        background-color: rgb(32, 121, 30);
+        font-size: 60px;
+        font-weight: bold;
+        font-family:'Graduate', sans-serif;
+        padding: 55px;
+        -webkit-text-stroke: .05px;
+        -webkit-text-stroke-color: rgb(255, 255, 255);
+      }
+
+      .left-image, .right-image {
+      position: absolute;
+      top: 50%;
+      width: 240px; 
+      height: 135px;
+      }
+      .left-image {
+        left: 0;
+        transform: translate(45%, -262.85%);
+        width: 280px;
+        height: 165.5px;
+      }
+
+      .right-image {
+        right: 0;
+        transform: translate(-45%, -272%);
+        width: 280px;
+        height: 157px;
+      }
+      .separator{
+        border: 5px double rgb(24, 69, 136);
+      }
+      table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .separator {
+            border-top: 2px solid black;
+            margin-top: 20px;
+        }
+
+        .character-container {
+            width: 150px;
+            height: 200px;
+            border: 2px solid black;
+            float: right;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+        label[for="season-select"] {
+          color:aliceblue
+        }
+      body{
+        background-color:#2e2e2e ;
+        margin:0;
+        padding:0;
+      }
+    </style>
+  </head>
+<body>
+<nav class="navbar">
+  <div class="nav-items">
+    <a href="/">Home</a>
+    <a href="index.html">Episodes</a>
+    <a href="/">About</a>
+    <a href="/">Socials</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-container">
+    <Header class=""Header>
+      <h1 >Greendale Community college</h1>
+      <img src="D:\Html proj\communityflag.jpg" alt="Left Image" class="left-image" width="200" height="100">
+      <img src="C:\Users\chris\Downloads\New Project.jpg" alt="Right Image" class="right-image" width="200" height="100">
+    </Header>
+      <hr class="separator">
+    <div class="main">    
+      <label for="season-select">Select a Season:</label>
+      <select id="season-select">
+        <option value="season1" selected>Season 1</option>
+        <option value="season2">Season 2</option>
+        <option value="season3">Season 3</option>
+        <option value="season4">Season 4</option>
+        <option value="season5">Season 5</option>
+        <option value="season6">Season 6</option>
+    </select>
+
+    <table id="season-table">
+        <thead>
+            <tr>
+                <th>Episodes</th>
+                <th>Length</th>
+                <th>IMDB Rating</th>
+            </tr>
+        </thead>
+        <tbody id="season-data">
+            <!-- Data will be dynamically populated here based on the selected season -->
+        </tbody>
+    </table>
+
+    <div class="separator"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+<script>
+  const seasonSelect = document.getElementById('season-select');
+  const seasonData = {
+      season1: [
+          { title: 'Pilot', length:'26 mins', rating:'7.6'},
+          { title:'Spanish 101', length:'22 mins', rating:'7.7'},
+          { title:'Introduction to film', length:'21 mins', rating:'8.1'},
+          { title:'Social Psychology', length:'22 mins', rating:'8.0'},
+          { title:'Advanced Criminal Law', length:'21 mins', rating:'7.7'},
+          { title:'Football, Feminism and You',length: '21 mins',rating: '7.6'},
+          { title:'Introduction to Statistics', length:'21 mins', rating:'8.6'},
+          { title:'Home Economics', length:'21 mins', rating:'7.8'},
+          { title:'Debate 109', length:'21 mins',rating: '8.7'},
+          { title:'Environmental Science', length:'21 mins',rating: '8.1'},
+          { title:' Politics of Human Sexuality',length: '21 mins', rating:'7.7'},
+          { title:'Comparative Religion',length: '21 mins', rating:'8.3'},
+          { title:'Investigative Journalism', length:'21 mins',rating: '7.9'},
+          { title:'Interpretive Dance',length: '20 mins',rating: '7.8'},
+          { title:'Romantic Expressionism',length: '21 mins', rating:'7.9'},
+          { title:'Communication Studies', length:'21 mins', rating:'8.3'},
+          { title:'Physical Education', length:'21 mins',rating: '8.9'},
+          { title:'Basic Genealogy', length:'21 mins',rating: '7.9'},
+          { title:'Beginner Pottery',length: '28 mins',rating: '8.3'},
+          { title:'The Science of Illusion', length:'20 mins', rating:'8.3'},
+          { title:'Contemporary American Poultry', length:'21 mins',rating: '9.3'},
+          { title:'The Art of Discourse',length: '21 mins',rating: '7.8'},
+          { title:'Modern Warfare',length:'20 mins',rating: '9.8'},
+          { title:'English as a Second Language', length:'21 mins',rating: '8.1'},
+          { title:"Pascal's Triangle Revisited",length: '21 mins',rating: '8.4'}
+
+      ],
+      season2: [
+        { title:'Anthropology 101', length:'22 mins',rating: '8.6'},
+        { title:'Accounting for Lawyers', length:'22 mins',rating: '8.2'},
+        { title:'The Psychology of Letting Go', length:'22 mins',rating: '7.9'},
+        { title:'Basic Rocket Science', length:'30 mins',rating: '8.6'},
+        { title:'Messianic Myths and Ancient Peoples', length:'22 mins',rating: '7.7'},
+        { title:'Epidemiology', length:'22 mins',rating: '9.2'},
+        { title:'Aerodynamics of Gender', length:'22 mins',rating: '8.3'},
+        { title:'Cooperative Calligraphy', length:'22 mins',rating: '9.1'},
+        { title:'Conspiracy Theories and Interior Design', length:'22 mins',rating: '9.4'},
+        { title:'Mixology Certification', length:'21 mins',rating: '8.4'},
+        { title:"Abed's Uncontrollable Christmas", length:'21 mins',rating: '8.6'},
+        { title:'Asian Population Studies', length:'22 mins',rating: '7.9'},
+        { title:'Celebrity Pharmacology 212', length:'21 mins',rating: '7.8'},
+        { title:'Advanced Dungeons & Dragons', length:'22 mins',rating: '9.5'},
+        { title:'Early 21st Century Romanticism', length:'22 mins',rating: '7.9'},
+        { title:'Intermediate Documentary Filmmaking', length:'22 mins',rating: '8.7'},
+        { title:'Intro to Political Science', length:'21 mins',rating: '8.1'},
+        { title:'Custody Law and Eastern European Diplomacy', length:'22 mins',rating: '7.3'},
+        { title:'Critical Film Studies', length:'21 mins',rating: '8.9'},
+        { title:'Competitive Wine Tasting', length:'22 mins',rating: '7.5'},
+        { title:'Paradigms of Human Memory', length:'21 mins',rating: '9.0'},
+        { title:'Applied Anthropology and Culinary Arts', length:'20 mins',rating: '7.9'},
+        { title:'A Fistful of Paintballs', length:'30 mins',rating: '9.6'},
+        { title:'For a Few Paintballs More', length:'30 mins',rating: '9.5'}
+      ],
+      season3: [
+        { title: 'Biology 101', length: '22 mins', rating: '7.9' },
+        { title: 'Geography of Global Conflict', length: '21 mins', rating: '8.0' },
+        { title: 'Remedial Chaos Theory', length: '21 mins', rating: '7.9' },
+        { title: 'Competitive Ecology', length: '21 mins', rating: '9.8' },
+        { title: 'Horror Fiction in Seven Spooky Steps', length: '21 mins', rating: '8.7' },
+        { title: 'Advanced Gay', length: '21 mins', rating: '7.5' },
+        { title: 'Studies in Modern Movement', length: '21 mins', rating: '8.5' },
+        { title: 'Documentary Filmmaking: Redux', length: '21 mins', rating: '9.0' },
+        { title: 'Foosball and Nocturnal Vigilantism', length: '21 mins', rating: '8.3' },
+        { title: 'Regional Holiday Music', length: '21 mins', rating: '8.5' },
+        { title: 'Urban Matrimony and the Sandwich Arts', length: '21 mins', rating: '7.6' },
+        { title: 'Contemporary Impressionists', length: '21 mins', rating: '7.9' },
+        { title: 'Digital Exploration of Interior Design', length: '21 mins', rating: '8.1' },
+        { title: 'Pillows and Blankets', length: '21 mins', rating: '9.3' },
+        { title: 'Origins of Vampire Mythology', length: '21 mins', rating: '8.0' },
+        { title: 'Virtual Systems Analysis', length: '21 mins', rating: '8.5' },
+        { title: 'Basic Lupine Urology', length: '21 mins', rating: '9.4' },
+        { title: 'Course Listing Unavailable', length: '21 mins', rating: '8.1' },
+        { title: 'Curriculum Unavailable', length: '21 mins', rating: '9.1' },
+        { title: 'Digital Estate Planning', length: '21 mins', rating: '9.4' },
+        { title: 'The First Chang Dynasty', length: '21 mins', rating: '9.0' },
+        { title: 'Introduction to Finality', length: '21 mins', rating: '8.7' }
+    ],
+    season4: [
+        { title: 'History 101', length: '22 mins', rating: '7.2' },
+        { title: 'Paranormal Parentage', length: '21 mins', rating: '7.5' },
+        { title: 'Conventions of Space and Time', length: '21 mins', rating: '7.2' },
+        { title: 'Alternative History of the German Invasion', length: '21 mins', rating: '7.0' },
+        { title: 'Cooperative Escapism in Familial Relations', length: '21 mins', rating: '7.4' },
+        { title: 'Advanced Documentary Filmmaking', length: '21 mins', rating: '7.4' },
+        { title: 'Economics of Marine Biology', length: '21 mins', rating: '6.6' },
+        { title: 'Herstory of Dance', length: '21 mins', rating: '7.8' },
+        { title: 'Intro to Felt Surrogacy', length: '21 mins', rating: '6.8' },
+        { title: 'Intro to Knots', length: '21 mins', rating: '7.5' },
+        { title: 'Basic Human Anatomy', length: '21 mins', rating: '7.9' },
+        { title: 'Heroic Origins', length: '21 mins', rating: '8.1' },
+        { title: 'Advanced Introduction to Finality', length: '21 mins', rating: '7.7' }
+    ],
+    season5: [
+        { title: 'Repilot', length: '23 mins', rating: '7.7' },
+        { title: 'Introduction to Teaching', length: '21 mins', rating: '8.4' },
+        { title: 'Basic Intergluteal Numismatics', length: '21 mins', rating: '9.0' },
+        { title: 'Cooperative Polygraphy', length: '21 mins', rating: '9.2' },
+        { title: 'Geothermal Escapism', length: '21 mins', rating: '9.4' },
+        { title: 'Analysis of Cork-Based Networking', length: '21 mins', rating: '8.0' },
+        { title: 'Bondage and Beta Male Sexuality', length: '21 mins', rating: '7.7' },
+        { title: 'App Development and Condiments', length: '21 mins', rating: '8.9' },
+        { title: 'VCR Maintenance and Educational Publishing', length: '21 mins', rating: '7.9' },
+        { title: 'Advanced Advanced Dungeons & Dragons', length: '21 mins', rating: '8.3' },
+        { title: 'G.I. Jeff', length: '21 mins', rating: '7.8' },
+        { title: 'Basic Story', length: '21 mins', rating: '7.6' },
+        { title: 'Basic Sandwich', length: '21 mins', rating: '8.0' }
+    ],
+    season6: [
+        { title: 'Ladders', length: '21 mins', rating: '7.5' },
+        { title: 'Lawnmower Maintenance and Postnatal Care', length: '21 mins', rating: '7.3' },
+        { title: 'Basic Crisis Room Decorum', length: '21 mins', rating: '7.5' },
+        { title: 'Queer Studies and Advanced Waxing', length: '21 mins', rating: '7.9' },
+        { title: 'Laws of Robotics and Party Rights', length: '21 mins', rating: '7.4' },
+        { title: 'Basic Email Security', length: '21 mins', rating: '7.4' },
+        { title: 'Advanced Safety Features', length: '21 mins', rating: '7.2' },
+        { title: 'Intro to Recycled Cinema', length: '21 mins', rating: '7.7' },
+        { title: 'Grifting 101', length: '21 mins', rating: '7.5' },
+        { title: 'Basic RV Repair and Palmistry', length: '21 mins', rating: '7.3' },
+        { title: 'Modern Espionage', length: '21 mins', rating: '8.8' },
+        { title: 'Wedding Videography', length: '21 mins', rating: '8.5' },
+        { title: 'Emotional Consequences of Broadcast Television', length: '21 mins', rating: '9.4' }
+      ]
+  };
+
+  const seasonTableBody = document.getElementById('season-data');
+
+  seasonSelect.addEventListener('change', function () {
+      const selectedSeason = seasonSelect.value;
+      const episodes = seasonData[selectedSeason];
+
+      // Clear existing data
+      seasonTableBody.innerHTML = '';
+
+      // Populate table with selected season data
+      episodes.forEach(episode => {
+      const row = document.createElement('tr');
+      const titleCell = document.createElement('td');
+      titleCell.textContent = episode.title;
+      
+      const lengthCell = document.createElement('td');
+      lengthCell.textContent = episode.length;
+      
+      const ratingCell = document.createElement('td');
+      ratingCell.textContent = episode.rating;
+      
+      row.appendChild(titleCell);
+      row.appendChild(lengthCell);
+      row.appendChild(ratingCell);
+      
+      seasonTableBody.appendChild(row);
+    });
+  });
+  seasonSelect.dispatchEvent(new Event('change'));
+</script>
+</body> 
+</html>
